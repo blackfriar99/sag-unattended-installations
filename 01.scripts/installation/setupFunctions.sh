@@ -623,19 +623,23 @@ generateProductsImageFromTemplate(){
         local lPlatformString=${4:-LNXAMD64}
 
         # current default
-        if [[ ${1} == *"/1011/"* ]]; then
-            local lSdcServerUrl=${SUIF_SDC_SERVER_URL_1011:-"https\://sdc-hq.softwareag.com/cgi-bin/dataservewebM1011.cgi"}
+        if [[ ${1} == *"/1015/"* ]]; then
+              local lSdcServerUrl=${SUIF_SDC_SERVER_URL_1015:-"https\://sdc-hq.softwareag.com/cgi-bin/dataservewebM1015.cgi"}
         else
-            if [[ ${1} == *"/1005/"* ]]; then
-                lSdcServerUrl=${SUIF_SDC_SERVER_URL_1005:-"https\://sdc-hq.softwareag.com/cgi-bin/dataservewebM105.cgi"}
-            else
-                if [[ ${1} == *"/1007/"* ]]; then
-                    lSdcServerUrl=${SUIF_SDC_SERVER_URL_1007:-"https\://sdc-hq.softwareag.com/cgi-bin/dataservewebM107.cgi"}
-                else
-                    logW "[setupFunctions.sh/generateProductsImageFromTemplate()] - Unsupported version in template ${1}. Continuing using the 10.11 SDC URL..."
-                fi
-            fi
-        fi
+          if [[ ${1} == *"/1011/"* ]]; then
+              local lSdcServerUrl=${SUIF_SDC_SERVER_URL_1011:-"https\://sdc-hq.softwareag.com/cgi-bin/dataservewebM1011.cgi"}
+          else
+              if [[ ${1} == *"/1005/"* ]]; then
+                  lSdcServerUrl=${SUIF_SDC_SERVER_URL_1005:-"https\://sdc-hq.softwareag.com/cgi-bin/dataservewebM105.cgi"}
+              else
+                  if [[ ${1} == *"/1007/"* ]]; then
+                      lSdcServerUrl=${SUIF_SDC_SERVER_URL_1007:-"https\://sdc-hq.softwareag.com/cgi-bin/dataservewebM107.cgi"}
+                  else
+                      logW "[setupFunctions.sh/generateProductsImageFromTemplate()] - Unsupported version in template ${1}. Continuing using the 10.11 SDC URL..."
+                  fi
+              fi
+          fi
+        fi  
 
         huntForSuifFile "02.templates/01.setup/${1}" "template.wmscript"
 
