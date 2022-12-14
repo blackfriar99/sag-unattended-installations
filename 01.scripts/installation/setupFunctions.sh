@@ -467,8 +467,8 @@ assureDownloadableFile(){
 # Parameters
 # $1 - OPTIONAL installer binary location, defaulted to ${SUIF_INSTALL_INSTALLER_BIN}, which is also defaulted to /tmp/installer.bin
 assureDefaultInstaller(){
-    local installerUrl="https://empowersdc.softwareag.com/ccinstallers/SoftwareAGInstaller20221018-Linux_x86_64.bin"
-    local installerSha256Sum="812dddc95aaa368c699f9995246452c8368bd09121cd4070f988336ff50d72bc"
+    local installerUrl="https://empowersdc.softwareag.com/ccinstallers/SoftwareAGInstaller20221103-Linux_x86_64.bin"
+    local installerSha256Sum="e533d6e09c03a914de175d6f6735a52fa0be553f0977b7667b33f17532907550"
     SUIF_INSTALL_INSTALLER_BIN="${SUIF_INSTALL_INSTALLER_BIN:-/tmp/installer.bin}"
     local installerBin="${1:-$SUIF_INSTALL_INSTALLER_BIN}"
     if ! assureDownloadableFile "${installerBin}" "${installerUrl}" "${installerSha256Sum}" ; then
@@ -480,8 +480,8 @@ assureDefaultInstaller(){
 # Parameters
 # $1 - OPTIONAL SUM bootstrap binary location, defaulted to ${SUIF_PATCH_SUM_BOOSTSTRAP_BIN}, which is also defaulted to /tmp/sum-bootstrap.bin
 assureDefaultSumBoostrap(){
-    local sumBoostrapUrl="https://empowersdc.softwareag.com/ccinstallers/SoftwareAGUpdateManagerInstaller20220825-11-LinuxX86.bin"
-    local sumBoostrapSha256Sum="8d8156cc40f9f866ab6aa897086bea629fa64ec45d1424b94d310c3acc4f9551"
+    local sumBoostrapUrl="https://empowersdc.softwareag.com/ccinstallers/SoftwareAGUpdateManagerInstaller20221101-11-LinuxX86.bin"
+    local sumBoostrapSha256Sum="d29f20ebeb77a9fbe58815fc621a80c970bdd98bbe95563748ef694acf652b4b"
     SUIF_PATCH_SUM_BOOSTSTRAP_BIN="${SUIF_PATCH_SUM_BOOSTSTRAP_BIN:-/tmp/sum-bootstrap.bin}"
     local lSumBootstrap="${1:-SUIF_PATCH_SUM_BOOSTSTRAP_BIN}"
     if ! assureDownloadableFile ${lSumBootstrap} "${sumBoostrapUrl}" "${sumBoostrapSha256Sum}" ; then
